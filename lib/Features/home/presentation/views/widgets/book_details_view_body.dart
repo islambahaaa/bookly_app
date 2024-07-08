@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_details_app_bar.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -14,10 +15,11 @@ class BookDetailsViewBody extends StatelessWidget {
         children: [
           const CustomBookDetailsAppBar(),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: width * 0.2),
+            padding:
+                EdgeInsets.symmetric(horizontal: width * 0.2, vertical: 20),
             child: const CustomBookImage(),
           ),
-          const SizedBox(height: 43),
+          const SizedBox(height: 23),
           Text(
             'The Jungle Book',
             style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
@@ -28,6 +30,10 @@ class BookDetailsViewBody extends StatelessWidget {
               color: Colors.grey,
               fontWeight: FontWeight.w500,
             ),
+          ),
+          const SizedBox(height: 16),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
           ),
         ],
       ),
