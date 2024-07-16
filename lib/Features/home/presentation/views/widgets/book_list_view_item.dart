@@ -21,7 +21,7 @@ class BookListViewItem extends StatelessWidget {
           children: [
             CustomBookImage(
                 borderRadius: BorderRadius.circular(12),
-                imageUrl: book.volumeInfo.imageLinks.thumbnail),
+                imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? ''),
             const SizedBox(
               width: 30,
             ),
