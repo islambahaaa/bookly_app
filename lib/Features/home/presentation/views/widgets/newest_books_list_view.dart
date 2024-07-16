@@ -19,9 +19,20 @@ class NewestBooksListView extends StatelessWidget {
             itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: BookListViewItem(
-                  book: state.books[index],
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    BookListViewItem(
+                      book: state.books[index],
+                    ),
+                    const SizedBox(
+                      height: 7,
+                    ),
+                    const Divider(
+                      thickness: 0.15,
+                    ),
+                  ],
                 ),
               );
             });

@@ -28,6 +28,7 @@ class BookListViewItem extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
@@ -45,6 +46,7 @@ class BookListViewItem extends StatelessWidget {
                   ),
                   Text(
                     book.volumeInfo.authors!.first,
+                    overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle14,
                   ),
                   const SizedBox(
