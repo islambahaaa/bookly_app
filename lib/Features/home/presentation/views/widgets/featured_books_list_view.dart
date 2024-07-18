@@ -2,8 +2,10 @@ import 'package:bookly_app/Features/home/presentation/manager/fratured_books_cub
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/widgets/custom_error_widget.dart';
 import 'package:bookly_app/core/widgets/custom_loading_indecator.dart';
+import 'package:bookly_app/core/widgets/shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
@@ -36,7 +38,7 @@ class FeaturedBooksListView extends StatelessWidget {
       } else if (state is FeaturedBooksFailure) {
         return CustomErrorWidget(errMessage: state.errMessage);
       } else {
-        return const CustomLoadingIndecator();
+        return const ShimmerFeaturedListView();
       }
     });
   }
