@@ -24,7 +24,9 @@ class BookDetailsViewBody extends StatelessWidget {
                   book: book,
                 ),
                 const Spacer(),
-                const BookAction(),
+                BookAction(
+                  book: book,
+                ),
                 const Spacer(
                   flex: 2,
                 ),
