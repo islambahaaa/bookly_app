@@ -103,6 +103,34 @@ class ShimmerNewestListView extends StatelessWidget {
   }
 }
 
+class ShimmerSimilarListView extends StatelessWidget {
+  const ShimmerSimilarListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[500]!.withOpacity(0.5),
+      highlightColor: Colors.transparent,
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.15,
+        child: ListView.builder(
+          itemCount: 5,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(right: 5),
+              child: ShimmerListViewItem(
+                padding: const EdgeInsets.only(right: 5),
+                borderRadius: BorderRadius.circular(8),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
 class Skelton extends StatelessWidget {
   const Skelton({
     super.key,
@@ -126,14 +154,17 @@ class Skelton extends StatelessWidget {
 class ShimmerListViewItem extends StatelessWidget {
   const ShimmerListViewItem({
     super.key,
+    this.padding,
+    this.borderRadius,
   });
-
+  final EdgeInsetsGeometry? padding;
+  final BorderRadiusGeometry? borderRadius;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 16),
+      padding: padding ?? const EdgeInsets.only(right: 16),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: borderRadius ?? BorderRadius.circular(20),
         child: AspectRatio(
           aspectRatio: 2.6 / 4,
           child: Container(
