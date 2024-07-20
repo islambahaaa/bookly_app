@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -27,7 +27,7 @@ class BookDetailsSection extends StatelessWidget {
           style: Styles.textStyle30.copyWith(fontWeight: FontWeight.bold),
         ),
         Text(
-          book.volumeInfo.authors?[0] ?? 'No author',
+          book.volumeInfo.authors?.first ?? 'No author',
           style: Styles.textStyle18.copyWith(
             color: Colors.grey,
             fontWeight: FontWeight.w500,

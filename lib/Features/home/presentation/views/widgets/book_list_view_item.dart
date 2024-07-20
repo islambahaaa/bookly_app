@@ -1,4 +1,4 @@
-import 'package:bookly_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:bookly_app/constants.dart';
@@ -35,7 +35,7 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: Text(
-                      book.volumeInfo.title!,
+                      book.volumeInfo.title ?? 'No Title',
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       style: Styles.textStyle20.copyWith(
@@ -47,7 +47,7 @@ class BookListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    book.volumeInfo.authors!.first,
+                    book.volumeInfo.authors?.first ?? 'Unknown Author',
                     overflow: TextOverflow.ellipsis,
                     style: Styles.textStyle14,
                   ),
