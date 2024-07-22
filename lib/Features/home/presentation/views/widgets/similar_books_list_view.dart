@@ -34,7 +34,10 @@ class SimilarBooksListView extends StatelessWidget {
           ),
         );
       } else if (state is SimilarBooksFailure) {
-        return CustomErrorWidget(errMessage: state.errMessage);
+        return SizedBox(
+          height: MediaQuery.of(context).size.height * 0.15,
+          child: CustomErrorWidget(errMessage: state.errMessage),
+        );
       } else {
         return const ShimmerSimilarListView();
       }

@@ -13,7 +13,6 @@ class SearchResultListView extends StatelessWidget {
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
         if (state is SearchSuccess) {
-          print(state.books.length);
           return ListView.builder(
               padding: EdgeInsets.zero,
               itemCount: state.books.length,

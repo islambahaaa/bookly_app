@@ -9,17 +9,14 @@ class ShimmerFeaturedListView extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.grey[500]!.withOpacity(0.5),
       highlightColor: Colors.transparent,
-      child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.31,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 30),
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5, // Adjust the count based on your needs
-            itemBuilder: (context, index) {
-              return const ShimmerListViewItem();
-            },
-          ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 5, // Adjust the count based on your needs
+          itemBuilder: (context, index) {
+            return const ShimmerListViewItem();
+          },
         ),
       ),
     );
