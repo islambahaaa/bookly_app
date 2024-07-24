@@ -1,15 +1,20 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
 import 'access_info.dart';
 import 'sale_info.dart';
 import 'search_info.dart';
 import 'volume_info.dart';
 
+part 'book_model.g.dart';
+
+@HiveType(typeId: 0)
 class BookModel extends Equatable {
   final String? kind;
   final String? id;
   final String? etag;
   final String? selfLink;
+  @HiveField(0)
   final VolumeInfo volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;

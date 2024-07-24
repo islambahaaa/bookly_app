@@ -1,26 +1,36 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
 import 'image_links.dart';
 import 'industry_identifier.dart';
 import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
+part 'volume_info.g.dart';
+
+@HiveType(typeId: 1)
 class VolumeInfo extends Equatable {
+  @HiveField(0)
   final String? title;
+  @HiveField(1)
   final List<String>? authors;
   final String? publishedDate;
   final String? description;
   final List<IndustryIdentifier>? industryIdentifiers;
   final ReadingModes? readingModes;
+  @HiveField(2)
   final int? pageCount;
   final String? printType;
+  @HiveField(3)
   final List<String>? categories;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
+  @HiveField(4)
   final ImageLinks? imageLinks;
   final String? language;
+  @HiveField(5)
   final String? previewLink;
   final String? infoLink;
   final String? canonicalVolumeLink;
