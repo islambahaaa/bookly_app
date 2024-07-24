@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widgets/newest_books_list_view.dart';
 import 'package:flutter/material.dart';
 
 class FavouratesView extends StatelessWidget {
@@ -16,6 +17,17 @@ class FavouratesViewbody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ListView.builder(
+        padding: EdgeInsets.zero,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: Text('data'),
+            // child: BookListViewItem(
+            //   book: state.books[index],
+            // ),
+          );
+        });
   }
 }
