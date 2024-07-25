@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/favourate/presentation/views/favourites_view.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo_impl.dart';
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const kHomeRoute = '/homeView';
   static const kBookDetailsRoute = '/bookDetailsView';
   static const kSearchRoute = '/SearchView';
+  static const kFavouriteRoute = '/FavouriteView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -27,6 +29,10 @@ abstract class AppRouter {
       GoRoute(
         path: kHomeRoute,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: kFavouriteRoute,
+        builder: (context, state) => const FavouritesView(),
       ),
       GoRoute(
         path: kBookDetailsRoute,

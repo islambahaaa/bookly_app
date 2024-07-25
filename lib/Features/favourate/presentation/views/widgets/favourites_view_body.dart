@@ -1,19 +1,8 @@
-import 'package:bookly_app/Features/home/presentation/views/widgets/newest_books_list_view.dart';
+import 'package:bookly_app/Features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class FavouratesView extends StatelessWidget {
-  const FavouratesView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: FavouratesViewbody(),
-    );
-  }
-}
-
-class FavouratesViewbody extends StatelessWidget {
-  const FavouratesViewbody({super.key});
+class FavouritesViewbody extends StatelessWidget {
+  const FavouritesViewbody({super.key});
 
   @override
   Widget build(BuildContext context) {
