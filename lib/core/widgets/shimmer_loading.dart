@@ -42,7 +42,7 @@ class ShimmerNewestListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   SizedBox(
-                    height: 125,
+                    height: 140,
                     child: Row(
                       children: [
                         const ShimmerListViewItem(),
@@ -75,6 +75,8 @@ class ShimmerNewestListView extends StatelessWidget {
                                       SizedBox(
                                         width: 6,
                                       ),
+                                      Skelton(width: 30, height: 25),
+                                      Spacer(),
                                       Skelton(width: 30, height: 25),
                                     ],
                                   )
