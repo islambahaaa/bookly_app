@@ -1,10 +1,15 @@
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
 
+part 'image_links.g.dart';
+
+@HiveType(typeId: 2)
 class ImageLinks extends Equatable {
-  final String smallThumbnail;
+  final String? smallThumbnail;
+  @HiveField(0)
   final String thumbnail;
 
-  const ImageLinks({required this.smallThumbnail, required this.thumbnail});
+  const ImageLinks({this.smallThumbnail, required this.thumbnail});
 
   factory ImageLinks.fromJson(Map<String, dynamic> json) => ImageLinks(
         smallThumbnail: json['smallThumbnail'] as String,

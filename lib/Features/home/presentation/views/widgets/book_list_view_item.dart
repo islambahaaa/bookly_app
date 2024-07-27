@@ -15,7 +15,6 @@ class BookListViewItem extends StatelessWidget {
   final BookModel book;
   @override
   Widget build(BuildContext context) {
-    final bloc = BlocProvider.of<FavouritesCubit>(context);
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsRoute, extra: book);
@@ -68,14 +67,15 @@ class BookListViewItem extends StatelessWidget {
                       BookRating(
                         count: book.volumeInfo.pageCount ?? 0,
                       ),
-                      BlocConsumer<FavouritesCubit, FavouritesState>(
-                        listener: (context, state) {},
+                      BlocBuilder<FavouritesCubit, FavouritesState>(
                         builder: (context, state) {
                           return IconButton(
                             onPressed: () {
-                              bloc.add(book);
+                              BlocProvider.of<FavouritesCubit>(context)
+                                  .addBookToFavourites(book);
                             },
-                            icon: bloc.isExist(book)
+                            icon: BlocProvider.of<FavouritesCubit>(context)
+                                    .isExist(book)
                                 ? const Icon(Icons.favorite)
                                 : const Icon(Icons.favorite_outline),
                           );

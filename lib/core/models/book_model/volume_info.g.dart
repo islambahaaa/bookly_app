@@ -21,8 +21,8 @@ class VolumeInfoAdapter extends TypeAdapter<VolumeInfo> {
       authors: (fields[1] as List?)?.cast<String>(),
       pageCount: fields[2] as int?,
       categories: (fields[3] as List?)?.cast<String>(),
-      imageLinks: fields[5] as ImageLinks?,
-      previewLink: fields[4] as String?,
+      imageLinks: fields[4] as ImageLinks?,
+      previewLink: fields[5] as String?,
     );
   }
 
@@ -38,9 +38,9 @@ class VolumeInfoAdapter extends TypeAdapter<VolumeInfo> {
       ..write(obj.pageCount)
       ..writeByte(3)
       ..write(obj.categories)
-      ..writeByte(5)
-      ..write(obj.imageLinks)
       ..writeByte(4)
+      ..write(obj.imageLinks)
+      ..writeByte(5)
       ..write(obj.previewLink);
   }
 
