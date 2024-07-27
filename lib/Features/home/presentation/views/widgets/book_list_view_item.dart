@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/favourate/presentation/manager/favourites_cubit/favourites_cubit.dart';
 import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly_app/Features/home/presentation/views/widgets/custom_book_image.dart';
@@ -6,6 +7,7 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class BookListViewItem extends StatelessWidget {
@@ -13,12 +15,13 @@ class BookListViewItem extends StatelessWidget {
   final BookModel book;
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<FavouritesCubit>(context);
     return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kBookDetailsRoute, extra: book);
       },
       child: SizedBox(
-        height: 125,
+        height: 140,
         child: Row(
           children: [
             CustomBookImage(
@@ -55,15 +58,28 @@ class BookListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'Free',
                         style: Styles.textStyle20
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      const Spacer(),
                       BookRating(
                         count: book.volumeInfo.pageCount ?? 0,
+                      ),
+                      BlocConsumer<FavouritesCubit, FavouritesState>(
+                        listener: (context, state) {},
+                        builder: (context, state) {
+                          return IconButton(
+                            onPressed: () {
+                              bloc.add(book);
+                            },
+                            icon: bloc.isExist(book)
+                                ? const Icon(Icons.favorite)
+                                : const Icon(Icons.favorite_outline),
+                          );
+                        },
                       ),
                     ],
                   )
