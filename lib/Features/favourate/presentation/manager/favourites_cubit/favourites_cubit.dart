@@ -12,10 +12,12 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   var booksBox = Hive.box<BookModel>(kBooksBox);
   void addBookToFavourites(BookModel book) async {
     if (isExist(book)) {
+      emit(FavouritesLoading());
       await booksBox.deleteAt(favouritesList.indexOf(book));
       fetchFavourites();
       emit(FavouritesRemoved());
     } else {
+      emit(FavouritesLoading());
       try {
         await booksBox.add(book);
         fetchFavourites();
