@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+<uses-permission android:name="android.permission.INTERNET"/>
 <queries>
  
   <intent>
@@ -11,7 +11,7 @@
   </intent>
 </queries>
     <application
-        android:label="bookly_app"
+        android:label="Books App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
