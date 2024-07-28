@@ -19,7 +19,9 @@ class BookDetailsViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               children: [
-                const CustomBookDetailsAppBar(),
+                CustomBookDetailsAppBar(
+                  book: book,
+                ),
                 BookDetailsSection(
                   book: book,
                 ),
