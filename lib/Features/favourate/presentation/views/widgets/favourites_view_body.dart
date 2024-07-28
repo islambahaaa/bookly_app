@@ -14,17 +14,20 @@ class FavouritesViewbody extends StatelessWidget {
     return BlocBuilder<FavouritesCubit, FavouritesState>(
       builder: (context, state) {
         final books = BlocProvider.of<FavouritesCubit>(context).favouritesList;
-        return ListView.builder(
-            padding: EdgeInsets.zero,
-            itemCount: books.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: BookListViewItem(
-                  book: books[index],
-                ),
-              );
-            });
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: ListView.builder(
+              padding: EdgeInsets.zero,
+              itemCount: books.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: BookListViewItem(
+                    book: books[index],
+                  ),
+                );
+              }),
+        );
       },
     );
   }
