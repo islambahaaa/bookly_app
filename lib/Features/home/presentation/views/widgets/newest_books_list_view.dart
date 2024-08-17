@@ -36,7 +36,8 @@ class NewestBooksListView extends StatelessWidget {
               );
             });
       } else if (state is NewestBooksFailure) {
-        return CustomErrorWidget(errMessage: state.errMessage);
+        return SliverToBoxAdapter(
+            child: CustomErrorWidget(errMessage: state.errMessage));
       } else {
         return const SliverFillRemaining(
             child: Padding(
