@@ -11,10 +11,11 @@ part 'book_model.g.dart';
 @HiveType(typeId: 0)
 class BookModel extends Equatable {
   final String? kind;
+  @HiveField(0)
   final String? id;
   final String? etag;
   final String? selfLink;
-  @HiveField(0)
+  @HiveField(1)
   final VolumeInfo volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;

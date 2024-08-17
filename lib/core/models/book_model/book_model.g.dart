@@ -17,6 +17,7 @@ class BookModelAdapter extends TypeAdapter<BookModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BookModel(
+      id: fields[1] as String?,
       volumeInfo: fields[0] as VolumeInfo,
     );
   }
@@ -24,7 +25,9 @@ class BookModelAdapter extends TypeAdapter<BookModel> {
   @override
   void write(BinaryWriter writer, BookModel obj) {
     writer
+      ..writeByte(2)
       ..writeByte(1)
+      ..write(obj.id)
       ..writeByte(0)
       ..write(obj.volumeInfo);
   }

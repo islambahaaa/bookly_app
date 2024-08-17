@@ -47,7 +47,6 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   }
 
   void fetchFavourites() {
-    var booksBox = Hive.box<BookModel>(kBooksBox);
     favouritesList = booksBox.values.toList();
   }
 }
