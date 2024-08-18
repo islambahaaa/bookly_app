@@ -13,7 +13,7 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   void addBookToFavourites(BookModel book) async {
     if (isExist(book)) {
       emit(FavouritesLoading());
-      await booksBox.deleteAt(favouritesList.indexOf(book));
+      await booksBox.deleteAt(findIndex(book));
       fetchFavourites();
       emit(FavouritesRemoved());
     } else {
@@ -38,9 +38,9 @@ class FavouritesCubit extends Cubit<FavouritesState> {
   }
 
   int findIndex(BookModel book) {
-    for (int i = 0; i < favouritesList.length; i++) {
-      if (isExist(book)) {
-        return i;
+    for (var b in favouritesList) {
+      if (b.id == book.id) {
+        return favouritesList.indexOf(b);
       }
     }
     return -1;
